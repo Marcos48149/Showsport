@@ -16,15 +16,14 @@ export default function PaymentCancelPage() {
   });
 
   useEffect(() => {
-    // Extract error details from URL parameters
     const reason = searchParams?.get('reason') || 'cancelled';
     const orderId = searchParams?.get('order_id') || '';
     const errorCode = searchParams?.get('error_code') || '';
 
     setErrorDetails({
-      reason: reason,
+      reason,
       orderNumber: orderId,
-      errorCode: errorCode
+      errorCode
     });
   }, [searchParams]);
 
@@ -73,9 +72,7 @@ export default function PaymentCancelPage() {
           {errorInfo.title}
         </h1>
 
-        <p className="text-gray-600 mb-6">
-          {errorInfo.message}
-        </p>
+        <p className="text-gray-600 mb-6">{errorInfo.message}</p>
 
         {errorDetails.orderNumber && (
           <div className="bg-gray-50 rounded-lg p-4 mb-6">
@@ -126,9 +123,7 @@ export default function PaymentCancelPage() {
         </div>
 
         <div className="mt-6 pt-4 border-t">
-          <p className="text-xs text-gray-500 mb-2">
-            ¿Necesitas ayuda?
-          </p>
+          <p className="text-xs text-gray-500 mb-2">¿Necesitas ayuda?</p>
           <div className="flex justify-center gap-4 text-sm">
             <Link href="#" className="text-blue-600 hover:underline">
               WhatsApp
